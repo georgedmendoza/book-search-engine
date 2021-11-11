@@ -44,13 +44,13 @@ const resolvers = {
             return{ token, user};
             // return user;
         },
-        saveBook: async (parent, { book }, context) => {
+        saveBook: async (parent, { inputBook }, context) => {
             // only logedin users can save books
             if (context.user) {
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id },
                     // use $addToSet to prevent duplicates
-                    { $push: { savedBooks: book }},
+                    { $addToSet: { savedBooks: inputBook }},
                     // returns new updated info
                     { new: true }
                 );

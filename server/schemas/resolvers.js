@@ -38,9 +38,12 @@ const resolvers = {
         },
         addUser: async (parent, args) => {
             const user = await User.create(args);
+            console.log(args)
             // sign a token
             const token = signToken(user);
             // return obj combing token w/ user data
+            console.log(token);
+            console.log(user);
             return{ token, user};
             // return user;
         },
@@ -62,13 +65,15 @@ const resolvers = {
         },
         removeBook: async (parent, { bookId }, context) => {
             // only logged in users
+            // console.log(bookId);
             if (context.user) {
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id },
                     // $pull - to remove from book data
-                    { $pull: { savedBooks: bookId }},
+                    { $pull: { savedBooks: {bookId} }},
                     { new: true }
                 );
+                // console.log(updatedUser);
                 return updatedUser;
             }
 

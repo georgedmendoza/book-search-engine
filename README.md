@@ -19,8 +19,12 @@
 
   ## Installation 
   - Use a Termal or GitBash
-  - Install react
-    - npx create-react-app <app-name>
+  - Install graphql
+    - npm install --save graphql
+  - Install apollo-server
+    - npm install apollo-server
+  - Install express
+    - npm install express
   - Use any compatible text editor
   - Clone or fork this repository to desired workstation
 
@@ -37,4 +41,3 @@
   - Feel free to reach me via GitHub or Email with any questions regarding this project
   - GitHub: [georgedmendoza](https://github.com/georgedmendoza)
   - Email: [georgedmendoza13@gmail.com](mailto:georgedmendoza13@gmail.com)
-
